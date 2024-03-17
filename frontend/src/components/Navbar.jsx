@@ -8,7 +8,7 @@ const Navbar = () => {
   const {user}=useContext(UserContext)
   return (
     <div className='flex items-center justify-between px-6 md:px-[200px] py-4'>
-      <h1 className='text-xl font-extrabold'><Link to="/">Blog Market</Link></h1>
+      <h1 className='text-xl font-extrabold'><Link to="/">Blog APP</Link></h1>
       <div className='flex items-center justify-center space-x-4 md:space-x-8'>
        {user?<h3 className='text-lg'><Link to="/write">Write</Link></h3>:""}
        {user? <Link to={"/profile/"+user._id}><div className='flex items-center justify-center space-x-2 cursor-pointer md:space-x-3'>

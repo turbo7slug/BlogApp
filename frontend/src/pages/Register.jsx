@@ -3,6 +3,9 @@ import {useState} from 'react'
 import axios from 'axios'
 import {Link, useNavigate} from 'react-router-dom'
 import {URL} from '../url'
+// import obj from '../url'
+
+// console.log(obj)
 
 const Register = () => {
 
@@ -15,14 +18,16 @@ const Register = () => {
   const navigate=useNavigate()
 
   const handleRegister=()=>{
+
+    console.log(URL)
     
     axios.post(URL+"/api/auth/register",{username,email,password})
     .then((res)=>{
         //console.log(res)
+        console.log(username, email, password)
         setUsername(res.data.username)
         setEmail(res.data.email)
         setPassword(res.data.password)
-        
         navigate('/login')
 
     })

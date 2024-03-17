@@ -34,12 +34,13 @@ router.post('/login',async(req,res)=>{
        !user && res.status(500).json("no user found!")
 
        const validated=await bcrypt.compare(req.body.password,user.password)
-
-       if(!validated){
-        res.status(500).json("no user found!")
-       }
-       else{
-        const accessToken=jwt.sign({id:user._id},process.env.token,{expiresIn:"15d"})
+        console.log(validated)
+        if(!validated){
+            res.status(500).json("no user found!")
+        }
+        else{
+            const accessToken=jwt.sign({id:user._id},process.env.token,{expiresIn:"15d"})
+            console.log(accessToken)
         // res.cookie('accessToken',accessToken).json('ok')
         
         const {password,...others}=user._doc
@@ -50,7 +51,8 @@ router.post('/login',async(req,res)=>{
 
     }
     catch(err){
-       res.status(500).json(err)
+    //    res.status(500).json(err)
+       res.status(500).send("adf")
     }
 })
 
